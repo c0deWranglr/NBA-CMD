@@ -1,6 +1,7 @@
 #!/bin/bash
 
 file="${2}"
+echo "Target output: ${file}"
 
 function copy_file() {
     echo "Loading file $1"
