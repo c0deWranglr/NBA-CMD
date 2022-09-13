@@ -7,4 +7,4 @@ if [ -z $season ]; then
 fi;
 
 season_dir="${data_dir}/${season}"
-mkdir ${season_dir} &> /dev/null
+setup_dir "${season_dir}"

@@ -3,10 +3,19 @@ name: Build
 
 on:
   push:
-  pull_request:
   workflow_dispatch:
 
 jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          submodules: recursive
+      - name: Run Test Suite
+        run: |
+          cd $GITHUB_WORKSPACE
+          test/bats/bin/bats --verbose-run test/tests/
   build:
     runs-on: ubuntu-latest
     permissions:
