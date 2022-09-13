@@ -3,7 +3,6 @@ name: Build
 
 on:
   push:
-  pull_request:
   workflow_dispatch:
 
 jobs:
@@ -12,7 +11,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: Run Test Suite
-        run: test/bats/bin/bats --verbose-run test/tests/
+        run: cd $GITHUB_WORKSPACE && test/bats/bin/bats --verbose-run test/tests/
   build:
     runs-on: ubuntu-latest
     permissions:
