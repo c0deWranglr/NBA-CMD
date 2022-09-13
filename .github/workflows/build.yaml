@@ -11,6 +11,8 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: Run Test Suite
+        with:
+          submodules: recursive
         run: |
           cd $GITHUB_WORKSPACE
           test/bats/bin/bats --verbose-run test/tests/
