@@ -1,5 +1,8 @@
 
-mkdir "${data_dir}" &> /dev/null
+source 'src/data/utils/fs.sh'
+
+data_dir="$HOME/.nba-cmd/cache"
+setup_dir "${data_dir}"
 
 function require { 
     if ! command -v $1 &> /dev/null
