@@ -3,8 +3,13 @@
 file="${2}"
 echo "Target output: ${file}"
 
+function ensure_newline() {
+    sed -i -e '$a\' "$1"
+}
+
 function copy_file() {
     echo "Loading file $1"
+    ensure_newline "$1"
     while IFS= read -r line
     do
         read -ra line_parts <<< "${line}"
