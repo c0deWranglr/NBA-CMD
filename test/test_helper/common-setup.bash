@@ -11,6 +11,7 @@ _common_setup() {
     
     source "$PROJECT_SRC/requirements.sh"
     source "$PROJECT_SRC/data/season.sh"
+    source "$PROJECT_SRC/data/utils/json.sh"
 
     cache_dir="$PROJECT_ROOT/test/.cache"
     season_dir="${cache_dir}/${season}"

@@ -60,8 +60,8 @@ function download() {
     [ "${num_records}" -eq 2 ]
 
     player1=$(echo $team_roster | jq -cr '.[0]')
-    [ "${player1}" = '{"fn":"Test","ln":"Person","pid":111,"num":"1","pos":"F-G","dob":"1980-01-01","ht":"6-8","wt":250,"y":16,"twc":"0","hcc":"USA"}' ]
+    [ "${player1}" = '{"fn":"Test","ln":"Person","pid":111,"num":"1","pos":"F-G","dob":"1980-01-01","ht":"6-8","wt":250,"y":16,"twc":"0","hcc":"USA","name":"Test Person"}' ]
 
     player2=$(echo $team_roster | jq -cr '.[1]')
-    [ "${player2}" = '{"fn":"Test2","ln":"Person2","pid":222,"num":"2","pos":"G","dob":"2000-01-01","ht":"6-3","wt":220,"y":1,"twc":"0","hcc":"USA"}' ]
+    [ "${player2}" = '{"fn":"Test2","ln":"Person2","pid":222,"num":"2","pos":"G","dob":"2000-01-01","ht":"6-3","wt":220,"y":1,"twc":"0","hcc":"USA","name":"Test2 Person2"}' ]
 }
