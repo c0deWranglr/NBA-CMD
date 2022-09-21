@@ -14,3 +14,4 @@ function require {
 
 require wget
 require jq
+require csvlook

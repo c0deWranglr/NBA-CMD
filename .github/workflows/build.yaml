@@ -9,6 +9,10 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
+      - name: Download CSV Kit
+        run: |
+          sudo apt-get update
+          sudo apt-get -y install csvkit
       - uses: actions/checkout@v3
         with:
           submodules: recursive

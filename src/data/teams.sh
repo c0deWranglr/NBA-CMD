@@ -1,6 +1,6 @@
 
 function load_teams_list() {
-    if [ $teams_list ]; then return; fi
+    if [ "$teams_list" ]; then return; fi
 
     if [ ! -f "${season_dir}/teams.json" ]
     then
@@ -25,7 +25,7 @@ function load_team_roster() {
     load_team_metadata $@;
     
     download "http://data.nba.net/v2015/json/mobile_teams/nba/${season}/teams/${team_slug}_roster.json" |\
-     jq '.t | .pl' >| "${team_dir}/roster.json"
+     jq "${JQ_CONCAT} .t | .pl | map(.+{\"name\": concat([.fn, .ln])})" >| "${team_dir}/roster.json"
 
     team_roster=$(cat "${team_dir}/roster.json")
 }
