@@ -2,13 +2,14 @@
 
 source 'src/requirements.sh'
 source 'src/data/utils/downloads.sh'
+source 'src/data/utils/cache.sh'
 source 'src/data/utils/json.sh'
 source 'src/data/season.sh'
 source 'src/data/teams.sh'
 
 source 'src/display/list.sh'
 
-load_teams_list
+download_teams
 echo "Supported teams:"
 jq_table "$teams_list" '{"Team Name": .fullName, "Conference": .confName, "Division": .divName}'
 echo

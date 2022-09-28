@@ -1,15 +1,14 @@
 #!/usr/bin/env bash
 
 _common_setup() {
-    load '../test_helper/bats-support/load'
-    load '../test_helper/bats-assert/load'
-    # get the containing directory of this file
-    # use $BATS_TEST_FILENAME instead of ${BASH_SOURCE[0]} or $0,
-    # as those will point to the bats executable's location or the preprocessed file respectively
-    PROJECT_ROOT="$( cd "$( dirname "$BATS_TEST_FILENAME" )/../.." >/dev/null 2>&1 && pwd )"
+    PROJECT_ROOT="$( cd "$( dirname "$BATS_TEST_FILENAME" )/$1" >/dev/null 2>&1 && pwd )"
     PROJECT_SRC="$PROJECT_ROOT/src"
+
+    load "$PROJECT_ROOT/test/test_helper/bats-support/load"
+    load "$PROJECT_ROOT/test/test_helper/bats-assert/load"
     
     source "$PROJECT_SRC/requirements.sh"
+    source "$PROJECT_SRC/data/utils/cache.sh"
     source "$PROJECT_SRC/data/season.sh"
     source "$PROJECT_SRC/data/utils/json.sh"
 
