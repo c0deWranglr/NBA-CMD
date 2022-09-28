@@ -1,7 +1,7 @@
 
 setup() {
     load '../test_helper/common-setup'
-    _common_setup
+    _common_setup "../../"
 
     source "$PROJECT_SRC/data/teams.sh"
 }
@@ -18,7 +18,7 @@ function download() {
     # Return json with two teams. 1 International and 1 NBA.
     download_return='{"_internal":{"pubDateTime":"2022-01-01 00:00:00.000 EDT","igorPath":"","xslt":"NBA/xsl/league/roster/marty_teams_list.xsl","xsltForceRecompile":"true","xsltInCache":"false","xsltCompileTimeMillis":"33","xsltTransformTimeMillis":"16","consolidatedDomKey":"prod__transform__marty_teams_list__000000000000","endToEndTimeMillis":"1881"},"league":{"standard":[{"isNBAFranchise":false,"isAllStar":false,"city":"International","altCityName":"International","fullName":"International Test","tricode":"INT","teamId":"111","nickname":"intest","urlName":"intest","teamShortName":"International","confName":"Intl","divName":""},{"isNBAFranchise":true,"isAllStar":false,"city":"NBA","altCityName":"NBA","fullName":"NBA Test","tricode":"NBA","teamId":"222","nickname":"NBATest","urlName":"nbatest","teamShortName":"NBA","confName":"East","divName":"Southeast"}]}}'
     
-    load_teams_list
+    download_teams
 
     num_teams=$(echo $teams_list | jq 'length')
     echo "Num teams: $num_teams"
@@ -32,7 +32,7 @@ function download() {
     # Return json with two teams. 1 International and 1 NBA.
     download_return='{"_internal":{"pubDateTime":"2022-01-01 00:00:00.000 EDT","igorPath":"","xslt":"NBA/xsl/league/roster/marty_teams_list.xsl","xsltForceRecompile":"true","xsltInCache":"false","xsltCompileTimeMillis":"33","xsltTransformTimeMillis":"16","consolidatedDomKey":"prod__transform__marty_teams_list__000000000000","endToEndTimeMillis":"1881"},"league":{"standard":[{"isNBAFranchise":false,"isAllStar":false,"city":"International","altCityName":"International","fullName":"International Test","tricode":"INT","teamId":"111","nickname":"intest","urlName":"intest","teamShortName":"International","confName":"Intl","divName":""},{"isNBAFranchise":true,"isAllStar":false,"city":"NBA","altCityName":"NBA","fullName":"NBA Test","tricode":"NBA","teamId":"222","nickname":"NBATest","urlName":"nbatest","teamShortName":"NBA","confName":"East","divName":"Southeast"}]}}'
 
-    load_team_metadata "test"
+    metadata_for_team "test"
 
     echo "METADATA: ${team_metadata}"
     [ "${team_metadata}" = '{"isNBAFranchise":true,"isAllStar":false,"city":"NBA","altCityName":"NBA","fullName":"NBA Test","tricode":"NBA","teamId":"222","nickname":"NBATest","urlName":"nbatest","teamShortName":"NBA","confName":"East","divName":"Southeast"}' ]

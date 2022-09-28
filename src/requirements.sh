@@ -1,5 +1,7 @@
 
-source 'src/data/utils/fs.sh'
+function setup_dir() {
+    mkdir -p "${1}" &> /dev/null
+}
 
 data_dir="$HOME/.nba-cmd/cache"
 setup_dir "${data_dir}"
