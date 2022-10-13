@@ -7,6 +7,7 @@ source 'src/data/utils/cache.sh'
 source 'src/data/utils/json.sh'
 source 'src/data/season.sh'
 source 'src/data/teams.sh'
+source 'src/data/schedule.sh'
 
 source 'src/display/list.sh'
 
@@ -55,6 +56,7 @@ function require_option() {
 # Load commands
 source 'src/cmd/teams.sh'
 source 'src/cmd/roster.sh'
+source 'src/cmd/schedule.sh'
 
 # Run the command
 command="$1"
