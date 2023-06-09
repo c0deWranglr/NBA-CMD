@@ -1,4 +1,4 @@
 
 function download() {
-    wget -q -O - "${1}"
+    wget --header="User-Agent: NBA-CMD" "${2:-}" -q -O - "${1}"
 }

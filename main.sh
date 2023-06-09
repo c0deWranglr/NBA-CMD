@@ -8,6 +8,7 @@ source 'src/data/utils/json.sh'
 source 'src/data/season.sh'
 source 'src/data/teams.sh'
 source 'src/data/schedule.sh'
+source 'src/data/scoreboard.sh'
 
 source 'src/display/list.sh'
 
@@ -57,6 +58,7 @@ function require_option() {
 source 'src/cmd/teams.sh'
 source 'src/cmd/roster.sh'
 source 'src/cmd/schedule.sh'
+source 'src/cmd/scores.sh'
 
 # Run the command
 command="$1"
@@ -70,7 +72,7 @@ elif [ $(is_command "$command") ]; then
                 eval "help_$command"; exit;
                 ;;
             -*|--*)
-                eval "opt_$command $1 $2"
+                eval "opt_$command '$1' '$2'"
                 shift
                 shift
                 ;;
